@@ -5,6 +5,7 @@ Office.onReady((info) => {
 });
 
 function insertText() {
+  alert("Button clicked!");
   Word.run(async (context) => {
     const range = context.document.getSelection();
     range.insertText(
