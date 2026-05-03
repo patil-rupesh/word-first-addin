@@ -1,19 +1,21 @@
+console.log("✅ taskpane.js loaded");
+
 Office.onReady((info) => {
-  alert("✅ Office is ready");
+  console.log("✅ Office.onReady fired", info);
 
   if (info.host === Office.HostType.Word) {
     const btn = document.getElementById("insertBtn");
+    console.log("🔍 Button found:", btn);
+
     if (btn) {
       btn.onclick = insertText;
-      alert("✅ Button handler attached");
-    } else {
-      alert("❌ Button not found in DOM");
+      console.log("✅ Click handler attached");
     }
   }
 });
 
 function insertText() {
-  alert("✅ Button clicked!");
+  console.log("✅ Insert button clicked");
 
   Word.run(async (context) => {
     const range = context.document.getSelection();
